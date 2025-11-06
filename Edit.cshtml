@@ -1,0 +1,25 @@
+﻿@model HospitalManagementSystem.Models.Patient
+
+@{
+    ViewData["Title"] = "编辑病人信息";
+}
+
+<h2>编辑病人信息</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- 内容与 Create.cshtml 相同 -->
+            <!-- 复制 Create.cshtml 的表单内容到这里 -->
+
+            <div class="form-group">
+                <input type="submit" value="保存" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+            </div>
+        </form>
+    </div>
+</div>

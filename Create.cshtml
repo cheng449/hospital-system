@@ -1,0 +1,99 @@
+﻿@model HospitalManagementSystem.Models.Patient
+
+@{
+    ViewData["Title"] = "添加病人";
+}
+
+<h2>添加新病人</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Gender" class="control-label"></label>
+                        <select asp-for="Gender" class="form-control">
+                            <option value="">请选择</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="AdmissionDate" class="control-label"></label>
+                        <input asp-for="AdmissionDate" type="date" class="form-control" />
+                        <span asp-validation-for="AdmissionDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Status" class="control-label"></label>
+                        <select asp-for="Status" class="form-control">
+                            <option value="">请选择</option>
+                            <option value="住院中">住院中</option>
+                            <option value="急重">急重</option>
+                            <option value="已出院">已出院</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="AttendingDoctor" class="control-label"></label>
+                        <input asp-for="AttendingDoctor" class="form-control" />
+                        <span asp-validation-for="AttendingDoctor" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Diagnosis" class="control-label"></label>
+                <input asp-for="Diagnosis" class="form-control" />
+                <span asp-validation-for="Diagnosis" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TreatmentPlan" class="control-label"></label>
+                <textarea asp-for="TreatmentPlan" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="TreatmentPlan" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Notes" class="control-label"></label>
+                <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="创建" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+            </div>
+        </form>
+    </div>
+</div>

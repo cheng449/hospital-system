@@ -1,0 +1,66 @@
+﻿@model HospitalManagementSystem.Models.Patient
+
+@{
+    ViewData["Title"] = "病人详情";
+}
+
+<div class="container">
+    <h1 class="text-center">医院住院病人管理系统</h1>
+    <h2 class="text-center mb-4">病人详情 - @Model.Name</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title mb-4">基本信息</h4>
+            <div class="row mb-3">
+                <div class="col-md-2"><strong>姓名</strong></div>
+                <div class="col-md-4">@Model.Name</div>
+                <div class="col-md-2"><strong>年龄</strong></div>
+                <div class="col-md-4">@Model.Age</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2"><strong>性别</strong></div>
+                <div class="col-md-4">@Model.Gender</div>
+                <div class="col-md-2"><strong>入院日期</strong></div>
+                <div class="col-md-4">@Model.AdmissionDate.ToString("yyyy-MM-dd")</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2"><strong>状态</strong></div>
+                <div class="col-md-4">
+                    <span class="badge @(Model.Status == "急重" ? "bg-danger" : Model.Status == "住院中" ? "bg-warning" : "bg-success")">
+                        @Model.Status
+                    </span>
+                </div>
+                <div class="col-md-2"><strong>主治医生</strong></div>
+                <div class="col-md-4">@Model.AttendingDoctor</div>
+            </div>
+
+            <hr />
+
+            <h5 class="mt-4">治疗方案</h5>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <p class="card-text">@Model.TreatmentPlan</p>
+                </div>
+            </div>
+
+            <h5 class="mt-4">备注</h5>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <p class="card-text">@Model.Notes</p>
+                </div>
+            </div>
+
+            <h5 class="mt-4">诊断信息</h5>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <p class="card-text">@Model.Diagnosis</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">编辑</a>
+        <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+    </div>
+</div>
